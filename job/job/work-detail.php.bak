@@ -1,0 +1,247 @@
+<?
+session_start();
+include "./system/config.inc.php";
+include "./system/function.php";
+/*$sql_update="update tb_article set  pageview=pageview+1 where content_id=".$_GET['article_id']." ";
+mysql_db_query($dbName,$sql_update);*/
+$strTable = "tb_job";
+$strCondition = "job_id='$_GET[job_id]' ";
+$data = fncSelectRecord($strTable,$strCondition);
+//$date_add = ThaiTimeConvert("".strtotime($data[date_add])."","0","1");
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <title><?=$data[subject_name];?></title>
+    <!-- Bootstrap core CSS -->
+	<link href="./asset/css/style.css" rel="stylesheet">
+    <link href="./asset/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="./asset/css/bootstrap.min.css" rel="stylesheet">
+	  <link href="./asset/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+ <link href="./asset/css/offcanvas.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="asset/dist/js/bootstrap.js"></script>
+
+<script src="asset/docs-assets/js/holder.js"></script>
+
+<script src="asset/docs-assets/js/application.js"></script>
+<script type="text/javascript">
+$('#myCollapsible').on('hidden.bs.collapse', function () {
+  // do something…
+})
+</script>
+
+
+  </head>
+
+  <body>
+<? include "template/header.php";?>
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+		  <div class="bs-example">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="upload/slice/1.jpg" alt="First slide">
+          </div>
+          <div class="item">
+            <img src="upload/slice/2.jpg" alt="Second slide">
+          </div>
+          <div class="item">
+            <img src="upload/slice/3.jpg" alt="Third slide">
+          </div>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+    </div><!-- /example -->
+          <div class="jumbotron1">
+            <h1>บอกข่าววันนี้</h1>
+            <p>ยินดีตอนรับติวเตอร์ทุกท่าน ร่วมมาเป็นส่วนหนึงของทีมงานสอนพิเศษ ตามบ้านคุณภาพกับเรา </p>
+          </div>
+<div class="detail_job">
+
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">รหัสงานสอน</label>
+    <div class="col-md-8">
+<?=$data[code_tutor];?>   </div>
+  </div>
+  <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">วิชา</label>
+    <div class="col-md-8"><?=$data[subject_name];?>  </div>
+  </div>
+  <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">สถานที่</label>
+    <div class="col-md-8">
+<?=$data[place_tutor];?>   </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">เพศ</label>
+    <div class="col-md-8">
+หญิง    </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">ระดับผู้เรียน</label>
+    <div class="col-md-8">
+<?=$data[class_num];?>      </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">ระดับผู้เรียน</label>
+    <div class="col-md-8">
+<?=$data[place_tutor];?>     </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">โรงเรียน</label>
+    <div class="col-md-8">
+<?=$data[class_num];?>    </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">หลักสูตร</label>
+    <div class="col-md-8">
+    </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">จำนวนผู้เรียน</label>
+    <div class="col-md-8"><?=$data[num_study];?>  คน   </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">เริ่มสอน</label>
+    <div class="col-md-8"><?=$data[start_study];?> <span class=text_to>ถึง</span><?=$data[end_study];?> <span class=text_to>จำนวนชั่วโมง</span>2 <span class=text_to>ต่อครั้ง</span></div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">วันที่ต้องการเรียน</label>
+    <div class="col-md-8">
+<?=$data[day_tutor];?>    </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">วันที่สอน/สัปดาห์</label>
+    <div class="col-md-8">
+<?=$data[perweek];?>   </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">ต้องการติวเตอร์</label>
+    <div class="col-md-8">
+<?=$data[want_tutor];?>   </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">ค่าสอน /ชั่วโมง</label>
+    <div class="col-md-8">
+<?=$data[price];?>    </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">ค่าประกันงานสอน</label>
+    <div class="col-md-8">
+<?=$data[price_garantee];?>    </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label">หมายเหตุ</label>
+    <div class="col-md-8">
+<?=$data[note];?> </div>
+  </div>
+ <div class="form-group">
+     <label for="inputPassword" class="col-md-3 control-label">เเผนที่ google</label>
+    <div class="col-md-8">
+<iframe marginwidth=0 marginheight=0 src="<?=$siteurl;?>map.php?id=<?=$data[job_id];?>" frameborder=0 width=650 scrolling=no height=400></iframe>
+   </div>
+  </div>
+     <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label"> <a href="add-job-complete.php?job_id=<?=$data[job_id];?>&action=save" > <img src="images/add-job.png"></a>
+</label>
+    <div class="col-md-8 bbtext">
+ติวเตอร์ท่านใดต้องการจองงานสอนงานนี้สามารถคลิ๊กที่ปุ๋ม  "จองงาน" ได้เลย ระบบจะทำการจองงาน ให้ท่านทันที่ เเละท่านสามารถเข้าไปดุรายการที่จอง ในจองงานสอนได้เลยครับ
+    </div>
+  </div>
+   <div class="bottom_line"></div>
+ <div class="form-group">
+    <label for="inputPassword" class="col-md-3 control-label cn"><h3>เปอร์เซนต์ได้งาน</h3>
+<?
+$result = mysql_query("SELECT * FROM tb_booking where job_id=".$data[job_id]."");
+$num_rows = mysql_num_rows($result);
+if($num_rows=="0"){
+$percentage=$percentage=100/1;
+}else{
+$percentage=100/$num_rows;
+}
+echo"<span style=font-size:35px;>$percentage</span>%";
+?>
+</label>
+
+    <div class="col-md-9 booking">
+	<h1>มีคนจองงานนี้เเล้ว <span style="color:#000;font-family:tahoma;"><?=$num_rows?></span>   คน</h1>
+	<? $sqlp="select * from tb_booking where job_id=".$data[job_id]." ORDER BY book_id ASC";
+       $resultp=mysql_query($sqlp);
+	   $i =1;
+	   while($datap=mysql_fetch_array($resultp)){
+?>
+<li><?=$i?>. <?=$datap[memberID];?></li>
+<? $i++;}?>
+    </div>
+  </div>
+   <div class="bottom_line"></div>
+<div class="box_m">
+	<div id="teach_relate"><h2><span style="color:#009f3c;">งานสอนที่ยังต้องการติวเตอร์</span></h2></div>
+<?php
+$str="select *from tb_job order by job_id Asc limit 5"; 
+
+$result=mysql_db_query($dbName,$str); 
+while ($sr=mysql_fetch_array($result)) {
+
+?>
+ <div class="form-group">
+    <div class="col-md-12">
+<?=$sr[subject_name];?><div style="float:right; width:120px;"><a href="work-detail.php?job_id=<?=$sr[job_id];?>">ดูงานสอน</a></div> </div>
+  </div>
+<? }?>
+<div class=clear></div>
+</div>
+</div>
+        </div><!--/span-->
+
+    <? include "template/sidebar.php";?>
+      </div><!--/row-->
+    </div><!--/.container-->
+    <? include "template/footer.php";?>
+  </body>
+</html>

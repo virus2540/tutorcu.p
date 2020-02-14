@@ -1,0 +1,16 @@
+php_flag register_globals on
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f   
+RewriteCond %{REQUEST_FILENAME} !-d  
+RewriteRule ^administrator/check-code-all?$ administrator/check-code-all.php [L]
+RewriteRule ^administrator/savejob-(.*)?$ administrator/save-job.php?process_id=$1 [L]
+RewriteRule ^administrator/editresturant-(.*)?$ administrator/admin-editresturant.php?process_id=$1 [L]
+RewriteRule ^administrator/editproporty-(.*)?$ administrator/admin-editproporty.php?process_id=$1 [L]
+RewriteRule ^administrator/editcomplete-(.*)?$ administrator/editcomplete.php?process_id=$1 [L]
+RewriteRule ^administrator/map-(.*)?$ administrator/map.php?process_id=$1 [L]
+RewriteRule ^administrator/member-editcomplete?$ administrator/member-editcomplete.php [L]
+RewriteRule ^restaurant/p(.*)?$ restaurant.php?page=$1   [L,QSA]
+RewriteCond %{HTTPS} !on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+

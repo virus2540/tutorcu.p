@@ -1,0 +1,74 @@
+@charset "utf-8";
+/*
+=======================================================================
+	General Rules
+=======================================================================
+*/
+/*------------------------------------------------Textboxon Email--------------------*/
+
+.browse_page{
+	clear:both;
+	margin-left:12px;
+	height:auto;
+	padding-top:5px;
+	padding-bottom:10px;
+	margin-top:5px;
+	display:block;
+}
+.browse_page a,.browse_page a:hover{
+	display:block;
+	height:22px;
+	width:22px;
+	font-size:14px;
+	float:left;
+	margin-right:2px;
+	color:#333333;
+	text-align:center;
+	line-height:18px;
+	font-weight:normal;
+	text-decoration:none;
+}
+.browse_page a:hover{
+	color:#ffffff;
+	background-color:#FF0000;
+
+}
+.browse_page a.selectPage{
+	display:block;
+	height:22px;
+	width:22px;
+	float:left;
+	margin-right:2px;
+	color:#fff;
+	text-align:center;
+	line-height:18px;
+	font-weight:bold;
+	background-color:#FF6633;
+}
+.browse_page a.SpaceC{
+	display:block;
+	height:22px;
+	width:22px;
+	float:left;
+	margin-right:2px;
+	background-color:#333333;
+	color:#333333;
+	text-align:center;
+	line-height:18px;
+	font-weight:bold;
+}
+.browse_page a.naviPN{
+	width:100px;
+	height:22px;
+	text-align:center;
+	display:inline-block;
+	background-repeat:no-repeat;	
+}
+.browse_page a.paging_next{
+	width:100px;
+	height:22px;
+	text-align:center;
+	display:inline-block;
+	background-repeat:no-repeat;	
+}
+/*---------- end page perstart link----------------------------*/

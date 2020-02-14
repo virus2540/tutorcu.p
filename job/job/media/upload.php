@@ -1,0 +1,38 @@
+<?php
+session_start();
+include'../system/config.inc.php'; 
+require("class.resizepic.php");
+if (isset($_POST["PHPSESSID"])) {
+		session_id($_POST["PHPSESSID"]);
+	}
+$gallery_id=$_POST["PHPSESSID"];
+$xcy =md5(Date("dmy_H-i-s"));
+$uploaddir = '../upload/gallery/pic/'; #กำหนด PATH อัพโหลดภาพของ Gallery
+
+$array_last=explode (".", $_FILES['Filedata']['name']);
+$c=count  ($array_last) -1 ;
+$lastname=strtolower ($array_last [$c]);
+$photonamet=md5(basename($_FILES['Filedata']['name']))."$xcy.".$lastname;
+$file = $uploaddir . $photonamet; 
+$size=$_FILES['Filedata']['size'];
+
+if (move_uploaded_file($_FILES['Filedata']['tmp_name'], $file)) { 
+#สร้างระบบ Thumbnail
+$original_image = "../upload/gallery/pic/".$photonamet."";
+$desired_width = 220 ;
+$desired_height = 150 ;
+$image = new hft_image($original_image);
+$image->resize($desired_width, $desired_height, '0');
+$image->output_resized("../upload/gallery/thumbnail/".$photonamet."");
+#สิ้นสุดระบบ Thumbnail
+$objConnect = mysql_connect("localhost","".$userroot."","".$pwdroot."") or die("Error Connect to Database");
+$objDB = mysql_select_db("".$dbName."");
+$strSQL = "INSERT INTO tb_file ";
+$strSQL .="(file_id,gallery_id,file_name,cover) VALUES ('','".$gallery_id."','".$photonamet."','no')";
+$objQuery = mysql_query($strSQL);
+echo 1;
+} else {
+	echo "error ".$_FILES['uploadfile']['error']." --- ".$_FILES['uploadfile']['tmp_name']." %%% ".$file."($size)";
+}	
+	exit(0);
+?>

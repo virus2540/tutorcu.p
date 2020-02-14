@@ -1,0 +1,79 @@
+.shortcut-button {
+                border: 1px solid #ccc;
+                background: #f7f7f7 url('../images/shortcut-button-bg.gif') top left no-repeat;
+                display: block;
+                width: 120px;
+                margin: 0 0 20px 0;
+                }
+
+.shortcut-button span {
+                border: 1px solid #fff;
+                display:block;
+                padding: 15px 10px 15px 10px;
+                text-align: center;
+                color: #555;
+                font-size: 13px;
+                line-height: 1.3em;
+                }
+
+.shortcut-button span img {
+                margin-bottom: 10px;
+                }
+
+.shortcut-button:hover {
+                background: #fff;
+				
+                }
+				
+.shortcut-button span:hover {
+				color: #57a000; 
+                }
+
+ul.shortcut-buttons-set li {
+                float: left;
+                margin: 0 15px 0 0;
+				padding: 0 !important;list-style:none;
+				background: 0;
+                }
+ul.shortcut-buttons-set li a:hover{text-decoration: none;}
+
+/* Grey Small Dropdown */
+
+/* General drop styles */
+.drop dl{ margin-left:5px; }
+.drop dd, .drop dt, .drop ul 
+{ margin:0px; padding:0px; }
+.drop dd { position:relative; }
+
+/* DT styles for sliding doors */
+.drop dt a {background: url('../images/privacyOff.png') no-repeat scroll right center;
+    display:block; width:40px; height:22px; cursor:pointer;}
+
+.drop dt a.selected{
+	background:#EEEEEE url('../images/privacyon.png') no-repeat scroll right center;
+}
+.drop dt a span {
+cursor:pointer; display:block; padding:5px;}
+
+/* UL styles */
+.drop dd ul { 
+background:#fff none repeat scroll 0 0; display:none;
+    list-style:none; padding:0px 0; position:absolute;
+    left:0px; width:160px; left:auto; right:0; 
+	border:1px solid #656565; cursor:pointer;
+	}
+.drop dd ul li{ 
+ margin:0; width:200px;
+}
+.drop span.value { display:none;}
+.drop dd ul li a { 
+display:block; font-weight:normal; width:137px; 
+text-align:left; overflow:hidden; padding:2px 4px 3px 19px; 
+color:#111111; text-decoration:none;
+}
+.drop dd ul li a:hover{ 
+background:#CCCCCC; color:white; text-decoration:none; 
+}
+.drop dd ul li a:visited{ 
+text-decoration:none; 
+}

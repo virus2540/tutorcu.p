@@ -1,0 +1,22 @@
+
+/* Red Button */
+.edit, .delete, .update, .cancle{background-image:url("../images/glyphicons-halflings-white.png");}
+.update{background-position:-456px -48px;width:25px;height:25px;padding-left:15px;}
+.cancle{background-position:-456px 0;width:25px;height:25px;padding-left:15px;}
+.delete{background-position:-456px 0;width:25px;height:25px;padding-left:15px}
+.edit{background-position:-96px -72px;width:25px;height:25px;padding-left:15px;}
+.del-edit {
+	background-color:#191f0b;float:left;margin:3px;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:12px;
+	font-weight:normal;
+	padding:0px 3px;
+	text-decoration:none;float:left
+}.del-edit:hover {
+	background-color:#000000;
+}.del-edit:active {
+	position:relative;
+	top:1px;
+}

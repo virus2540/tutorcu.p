@@ -1,0 +1,361 @@
+<?
+session_start();
+include"../system/config.inc.php";
+include"../system/function.php";
+include"../system/session.php";
+include"../system/thdate_function.php";
+$strTable = "members";
+$strCondition = "userID='$_SESSION[userID]' ";
+$data = fncSelectRecord($strTable,$strCondition);
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ข้อมูลส่วนตัว</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<link rel="stylesheet" type="text/css" href="../css/button.css" />
+<!-- CSS Reset -->
+<link rel="stylesheet" type="text/css" href="../plugin/css/reset.css" media="screen" />
+<!--  Fluid Grid System -->
+<link rel="stylesheet" type="text/css" href="../plugin/css/fluid.css" media="screen" />
+<!--  Main Stylesheet -->
+<link rel="stylesheet" type="text/css" href="../plugin/css/dandelion.css" media="screen" />
+
+<!-- jQuery JavaScript File -->
+<script type="text/javascript" src="../plugin/js/jquery-1.7.2.min.js"></script>
+
+<!-- jQuery-UI JavaScript Files -->
+<script type="text/javascript" src="../plugin/jui/js/jquery-ui-1.8.20.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../plugin/jui/css/jquery.ui.all.css" media="screen" />
+
+<!-- Demo JavaScript Files -->
+<script type="text/javascript" src="../plugin/js/demo/demo.ui.js"></script>
+
+<script src="../js/lib/jquery.js" type="text/javascript"></script>
+<!-- dropdown province check -->
+<script type="text/javascript" >
+/*check number 1,000*/
+			function addCommas(nStr)
+			{
+				nStr += '';
+				x = nStr.split('.');
+				x1 = x[0];
+				x2 = x.length > 1 ? '.' + x[1] : '';
+				var rgx = /(\d+)(\d{3})/;
+				while (rgx.test(x1)) {
+					x1 = x1.replace(rgx, '$1' + ',' + '$2');
+				}
+				return x1 + x2;
+			}
+
+			function chkNum(ele)
+			{
+				var num = parseFloat(ele.value);
+				ele.value = addCommas(num.toFixed(0));
+			}
+/*check numboric form*/
+function  checkNumber(data){
+ if(!data.value.match(/^\d*$/)){
+    //alert('กรอกตัวเลขเท่านั้น');
+    data.value='';
+ }
+}
+ $(document).ready(function() { /*ajax load image*/
+
+			/*document*/
+			$('#document').live('change', function()			{ 
+			           $("#preview_doc").html('');
+			    $("#preview_doc").html('<img src="../images/loader.gif" alt="Uploading...."/>');
+			$("#preview-form").ajaxForm({
+						target: '#preview_doc'
+		}).submit();
+		
+			});
+        }); 
+/*list box*/
+//<![CDATA[
+
+var province_id = <?php echo isset($_POST['province_id']) ? intval($_POST['province_id']) : '0'; ?>;
+var amphur_id = <?php echo isset($_POST['amphur_id']) ? intval($_POST['amphur_id']) : '0'; ?>;
+var district_id = <?php echo isset($_POST['district_id']) ? intval($_POST['district_id']) : '0'; ?>;
+
+function loadSelectBox(id,url,selected){
+	$.get(
+		url,{},function(data){
+			$(id).html(data);
+			if (selected!=0){
+				$(id+' option[value='+selected+']').attr('selected','selected');
+			}
+		}
+	);
+}
+
+$(function(){
+	loadSelectBox(
+			'#province_id',
+			'../geo_combo.php?load=province',
+			<?=$data[province_id];?>
+	);
+	loadSelectBox(
+			'#amphur_id',
+			'../geo_combo.php?load=amphur&province_id='+<?=$data[province_id];?>,
+			<?=$data[amphur_id];?>
+	);
+	loadSelectBox(
+			'#district_id',
+			'../geo_combo.php?load=district&amphur_id='+<?=$data[amphur_id];?>,
+			<?=$data[tambol_id];?>
+	);
+	$('#province_id').change(function(e){
+		var selected = e.target.value;
+		loadSelectBox(
+			'#amphur_id',
+			'../geo_combo.php?load=amphur&province_id='+selected,
+			0
+		);
+		$('#district_id :not(option:first)').remove(); //add
+	});
+	$('#amphur_id').change(function(e){
+		var selected = e.target.value;
+		loadSelectBox(
+			'#district_id',
+			'../geo_combo.php?load=district&amphur_id='+selected,
+			0
+		);
+	});
+});
+//]]>
+	  // When the document loads do everything inside here ...
+	  $(document).ready(function(){
+		
+		// When a link is clicked
+		$("a.tab").click(function () {
+			
+			
+			// switch all tabs off
+			$(".active").removeClass("active");
+			
+			// switch this tab on
+			$(this).addClass("active");
+			
+			// slide all content up
+			$(".content_tab").fadeOut();
+			
+			// slide this content up
+			var content_show = $(this).attr("title");
+			$("#"+content_show).fadeIn();
+		  
+		});
+	
+	  });
+</script>
+<!-- Plugin Files -->
+<script type="text/javascript" src="../js/thumbnail/jquery.min.js"></script>
+<script type="text/javascript" src="../js/thumbnail/jquery.form.js"></script>
+</head>
+<body>
+<? include"../template/panel-header.php";?>
+<div>
+
+
+  <div class="wapper">
+    <div class="bledcrum"><a href="<?=$url_root;?>">หน้าหลัก</a> &gt;ปรับปรุงข้อมูลบัญชีผู้ใช้</div>
+<div>
+    <div class="left_menu">
+<? include"../template/member_manu.php";?>
+</div>
+    <div class="right_menu">
+<div style="padding:15px;">
+<div class="da-panel-content">
+<h2>ปรับปรุงข้อมูลบัญชีผู้ใช้</h2>
+<p>ปรับปรุงข้อมูลผู้ใช้สำหรับคุณเพื่อ อัพเดทข้อมูลส่วนตัวของคุณ เพื่อเป็นประโยชน์ต่อตัวคุณเเละองค์กร</p>
+  								<div class="clear"></div>
+<div id="da-ex-tabs">
+                                    <ul>
+                                        <li><a href="#tabs-1">บัญชีของฉัน</a></li>
+                                        <li><a href="#tabs-2">อัพเดท profile สำหรับสาธารณะ</a></li>
+                                    </ul>
+<div id="tabs-1">
+ <div class="da-panel-content">
+
+<form class="da-form" method="POST"  action="../usersystem/member-editcomplete" enctype="multipart/form-data">
+<div class="head-topic-form">ข้อมูลเข้าใช้ระบบ</div>
+                                    	<div class="da-form-inline">
+                                            <div class="da-form-row">
+                                                <label>ชื่อในระบบ</label>
+                                                <div class="da-form-item small">
+                                                    <input type="text" name="username1" disabled="disabled" value="<?=$data[username];?>" />
+                                                </div>
+                                            </div>
+									</div>
+                                    	<div class="da-form-inline">
+                                            <div class="da-form-row">
+                                                <label>รหัสผ่านเดิม:</label>
+                                                <div class="da-form-item small">
+                                                    <input type="password" name="oldpassword" id="oldpassword" />
+
+                                                </div>
+<span class="formNote"><font color=red>หมายเหตุ : การเเก้ไขข้อมูลต้องใส่รหัสผ่านปัจจุบันทุกครั้ง</font></span>
+
+                                            </div>
+											</div>
+ <div class="da-form-row">
+                                                <label>รหัสผ่านใหม่</label>
+                                                <div class="da-form-item small">
+ <input name="password" type="password" id="password" value=""/>
+
+                                                </div>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>ยืนยันรหัสผ่านใหม่</label>
+                                                <div class="da-form-item small">
+<input name="repassword" type="password" id="repassword" onchange="Check();" />
+                                                </div>
+                                            </div>
+<div class="head-topic-form">ข้อมูลส่วนตัว</div>
+                                            <div class="da-form-row">
+                                                <label>ชื่อ-สกุล</label>
+                                                <div class="da-form-item">
+                                                    <input type="text" name="name" value="<?=$data[name];?>"/>
+                                                </div>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>ชื่อองค์กร</label>
+                                                <div class="da-form-item">
+                                                	<span class="formNote">ถ้าบุคคลทั่วไป กรอก บุคคลทั่วไป</span>
+                                                    <input type="text" name="org" value="<?=$data[org];?>"/>
+                                                </div>
+                                            </div>
+<div class="head-topic-form">ข้อมูลผู้ติดต่อ</div>
+ <div class="da-form-row">
+                                                <label>ที่อยู่</label>
+                                                <div class="da-form-item">
+                                                	<span class="formNote">กรอกข้อมูลตามความเป็นจริง</span>
+                                                    <textarea rows="auto" cols="auto" name="address"><?=$data[address];?></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>หมายเลขโทรศัพท์</label>
+                                                <div class="da-form-item">
+                                                	<span class="formNote">ใช้เฉพาะตัวเลขเท่านั้น</span>
+                                                    <input type="text" name="tel" value="<?=$data[tel];?>"/>
+                                                </div>
+                                            </div>
+                                     	<div class="da-form-row">
+                                            	<label>จังหวัด<span class="required">*</span></label>
+                                                <div class="da-form-item small">
+<select id="province_id" name="province_id">
+              <option value="">-- เลือกจังหวัด --</option>
+          </select>
+                                                </div>
+                                            </div>
+<div class="da-form-row">
+                                            	<label>อำเภอ/เขต<span class="required">*</span></label>
+                                                <div class="da-form-item small">
+<select id="amphur_id" name="amphur_id">
+
+          </select>
+                                                </div>
+                                            </div>
+                                        	<div class="da-form-row">
+                                            	<label>ตำบล/แขวง<span class="required">*</span></label>
+                                                <div class="da-form-item small">
+<select id="district_id" name="district_id">
+
+          </select>
+                                                </div>
+                                            </div>
+                                        	<div class="da-form-row">
+                                            	<label>ถนน: <span class="required">*</span></label>
+                                                <div class="da-form-item small">
+                                                	<input type="text" name="road" class="required" value="<?=$data[road];?>"/>
+                                                </div>
+                                            </div>
+                                        	<div class="da-form-row">
+                                            	<label>รหัสไปรษณี <span class="required">*</span></label>
+<div class="da-form-item small"><input type="text" name="zipcode" class="required" onkeyup='checkNumber(this)' value="<?=$data[zipcode];?>"/>
+                                                </div>
+                                            </div>
+ <div class="da-form-row">
+                                                <label>สถานะสมาชิก</label>
+                                                <div class="da-form-item">
+                                                    <ul class="da-form-list inline">
+	<input type="hidden" name="action" value="save" />
+<li><input type="radio" name="status" value="1" <? if($data['status']==1){?>checked="checked" <? }?> disabled="disabled"/> <label>สมาชิกทั่วไป</label></li>
+<li><input type="radio" name="status" value="2" <? if($data['status']==2){?>checked="checked" <? }?>disabled="disabled"/> <label>ตัวเเทน Agency</label></li>
+                                                    </ul>
+                                                    <span class="errorMessage">ถ้าต้องการเปลื่อนสถานะ ติดต่อฝ่ายบริการลูกค้า</span>
+                                                </div>
+                                            </div>
+<div class="da-submit-praked margin-top">
+<input type="submit" class="da-button blue" name="prakad" value="บันทึกการเปลื่อนเเปลงข้อมูล"/>
+</div>
+                                    </form>
+                                </div>
+     
+<div class="clear"></div>
+                                       
+                                    </div>
+                                    <div id="tabs-2"><? if($_SESSION[status]=='1'){
+	echo"ระบบนี้จำกัดเฉพาะตัวเเทนการขายเท่านั้น ";
+									}else{
+	?>
+<?
+#อ้างอิงผู้ระกอบการ
+$sql_date="Select * From  agency where member_id='$_SESSION[userID]'";
+$result_date=mysql_db_query($dbName,$sql_date);
+$arr_date=mysql_fetch_array($result_date);
+?>
+ <div class="da-panel-content">
+
+<form class="da-form" method="POST" id="preview-form" action="../usersystem/agencyupdate" enctype="multipart/form-data">
+ <div class="da-form-row">
+                                                <label>โลโก้</label>
+                                                <div class="da-form-item large">
+
+<input type="file"  name="document" id="document" class="da-custom-file" />
+<div id='preview_doc'><img src='../upload/avartar/<?=$arr_date[logo];?>'  class='preview' width='100px' height='100px'></div>
+                                                </div>
+                                            </div>
+ <div class="da-form-row">
+                                                <label>เกี่ยวกับตัวคุณ</label>
+                                                <div class="da-form-item large">
+                                                	<span class="formNote">กรอกข้อมูลตามความเป็นจริง</span>
+                                                    <textarea rows="auto" cols="auto" name="about"><?=$arr_date[about];?></textarea>
+                                                </div>
+                                            </div>
+ <div class="da-form-row">
+                                                <label>บริการและความชำนาญพิเศษ:</label>
+                                                <div class="da-form-item large">
+                                                    <textarea rows="auto" cols="auto" name="experience"><?=$arr_date[experience];?></textarea>
+                                                </div>
+                                            </div>
+ <div class="da-form-row">
+                                                <label>ขอบข่ายภูมิภาค:</label>
+                                                <div class="da-form-item large">
+                                                    <textarea rows="auto" cols="auto" name="service"><?=$arr_date[service];?></textarea>
+                                                </div>
+                                            </div>
+	<input type="hidden" name="action" value="save" />
+<div class="da-submit-praked margin-top">
+<input type="submit" class="da-button blue" name="prakad" value="บันทึกการเปลื่อนเเปลงข้อมูล"/>
+</div>
+                                    </form>
+	<?}?>
+
+                                    </div>
+                                </div>
+                                </div>
+        <div class="clear"></div>
+
+
+    </div>
+  </div></div>
+        <div class="clear"></div>
+  
+<?include"../template/panel-footer.php";?>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+/*via login*/
+@charset "utf-8";
+* {margin: 0; padding: 0;}
+#div-login {width: 620px; height: 280px; padding: 30px 20px 5px;color: #4d4c4c; position: relative; }
+#login-main * { position: relative; z-index: 50; text-align: left;}
+#div-login .png-trans { display: block; position: absolute; left: 0; top: 0; width: 670px; height: 305px; }
+#login-main a {color: #4d4c4c; outline: none;}
+#login-main h2 {font-size: 14px; font-weight: 700;}
+.sec-left{width: 355px;height:400px;float:left}
+.sec-right {width: 355px;margin-bottom:20px;height:400px}
+.sec-right a{text-decoration:none;}
+.sec-right a:hover{color:#B83A13}
+.sec-right ul{width:250px;float:right}
+.sec-right ul li,.sec-right ul .btn-line .login-btn,.sec-right .login-fb-btn {height: 40px; display: block;}
+.sec-right ul li { margin: 0 0 10px; height: auto; line-height: 32px;_margin: 8px 0;/height:1%;}
+.sec-right ul .chk-line,.sec-right ul .btn-line {background: none; height: 45px;margin: 10px 0;_margin: 0px; line-height: 45px;}
+.sec-right ul .chk-line li {vertical-align: right}
+.sec-right ul .chk-line label {display: inline; float: none;}
+.sec-right ul li label { padding-left: 5px; height: 32px; line-height: 32px; display: block; float: left; margin-right: 5px;}
+.sec-right ul li input {height: 32px; line-height: 32px; display: block; width: 200px; background: none; border: none;}
+.alert {color: #ff0000; font-size: 11px; line-height: normal; padding: 3px 0 0;/padding-top: 2px; clear: both;}
+.sec-right ul .chk-line input {height: auto; width: auto; vertical-align: middle; display: inline;}
+.sec-right ul .chk-line label {padding-right: 35px;}
+.sec-right ul .chk-line a,.sec-right ul .btn-line a {padding: 0 5px;}
+.sec-right ul .chk-line a:hover,.sec-right ul .btn-line a:hover {padding: 0 5px; color: #dd0000 !important;}
+.sec-right ul .btn-line .login-btn {background-position: 0 -145px; width: 132px; height: 47px; text-indent: -9999px; float: left;}
+.sec-right ul .btn-line .login-btn:hover {background-position: 0 -203px;}
+.sec-right {padding-top: 10px; float: right; margin: 0 50px 0 0; _margin-right: 25px;}
+.sec-right .login-fb-btn {background-position: 0 -104px; width: 194px; height: 25px; text-indent: -9999px;}
+.sec-right h2,.sec-left a,.sec-right p {margin-bottom: 10px;}
+.blockOverlay {cursor: default !important;}
+.box-p{margin-top:20px;width:250px;float:right;font-size:14px}
+.box-p a{color:#167CAC;font-size:14px;font-weight:bold}
