@@ -28,7 +28,11 @@ $data = mysqli_fetch_assoc($result0);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/dataTables.bootstrap4.css">
    
+<<<<<<< HEAD
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+=======
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+>>>>>>> a0a1f83cc5efd2e7d765776bcdd20484c81fa82d
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./OwlCarousel/docs/assets/owlcarousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="./OwlCarousel/docs/assetsowlcarousel/owl.theme.default.min.css">
@@ -73,9 +77,12 @@ $data = mysqli_fetch_assoc($result0);
                     <li class="nav-item">
                         <a class="nav-link" href="#">ติดต่อเรา</a>
                     </li>
+<<<<<<< HEAD
                     <li class="nav-item">
                         <a class="nav-link" href="./administrator/login.php">Admin</a>
                     </li>
+=======
+>>>>>>> a0a1f83cc5efd2e7d765776bcdd20484c81fa82d
                     <li class="pt-2 pl-2">
                         <div class="line-it-button" data-lang="th" data-type="friend" data-lineid="@TUTORCUJOB" data-count="true" style="display: none;"></div>
                     </li>
@@ -112,6 +119,7 @@ $data = mysqli_fetch_assoc($result0);
     </div>
     <!--set Content Layout-->
     <div class="container">
+<<<<<<< HEAD
         <!--บทความ-->
        
         <h1 class="pt-5">บทความ</h1>
@@ -129,6 +137,67 @@ $data = mysqli_fetch_assoc($result0);
                 </div>
             </div>
             <?php }}?>
+=======
+        <!--ข่าวสาร-->
+        <h1 class="pt-5">อัพเดทข่าวสาร</h1>
+        <div class="owl-carousel pt-2">
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/800x600_Wallpaper_Blue_Sky.png" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/800x600_Wallpaper_Blue_Sky.png" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/800x600_Wallpaper_Blue_Sky.png" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/800x600_Wallpaper_Blue_Sky.png" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/800x600_Wallpaper_Blue_Sky.png" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/800x600_Wallpaper_Blue_Sky.png" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/800x600_Wallpaper_Blue_Sky.png" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+>>>>>>> a0a1f83cc5efd2e7d765776bcdd20484c81fa82d
         </div>
         <!--ตาราง-->
         <h1 class="tp-3">งานสอนพิเศษอัพเดตตลอด 24 hr</h1>
@@ -157,7 +226,11 @@ $data = mysqli_fetch_assoc($result0);
                 <td class="<?=class_yel($sr[status]);?>"><?=$sr[place_tutor];?></td>
                 <td class="<?=class_yel($sr[status]);?>"><p align=center><?=class_status1($sr[status]);?></p></td>
                 <td class="<?=class_yel($sr[status]);?>"><?=BookingNum($sr[job_id]);?></td>
+<<<<<<< HEAD
                 <td class="<?=class_yel($sr[status]);?>"><a href="work-detail.php?job_id=<?=$sr[job_id];?>" ><img src="./img/file-icon.png" alt="" width="33%"></td>
+=======
+                <td class="<?=class_yel($sr[status]);?>"><a href="work-detail.php?job_id=<?=$sr[job_id];?>" ><i class="d-flex justify-content-center fa fa-file" align="center" style="font-size: 40px!important;color:#395d75;"></i></td>
+>>>>>>> a0a1f83cc5efd2e7d765776bcdd20484c81fa82d
             </tr> 
             <? }?>
             </tbody>
@@ -173,6 +246,7 @@ $data = mysqli_fetch_assoc($result0);
             </tfoot>
         </table>
         <!--บทความ-->
+<<<<<<< HEAD
         <h1 class="pt-3">ติวเตอร์</h1>
         <div class="owl-carousel pt-2">
         <?php
@@ -182,13 +256,70 @@ $data = mysqli_fetch_assoc($result0);
         ?>
             <div class="card" style="width:350px">
                 <img class="card-img-top" src="img/person.png" alt="Card image" style="width:100%">
+=======
+        <h1 class="pt-3">บทความ</h1>
+        <div class="owl-carousel pt-2">
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="http://labelme.csail.mit.edu/Release3.0/Images/users/dan00pot/duy/cat1.jpg" alt="Card image" style="width:100%">
                 <div class="card-body">
                     <h4 class="card-title">John Doe</h4>
                     <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
                     <a href="#" class="btn btn-info">Read more</a>
                 </div>
             </div>
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="http://labelme.csail.mit.edu/Release3.0/Images/users/dan00pot/duy/cat1.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="http://labelme.csail.mit.edu/Release3.0/Images/users/dan00pot/duy/cat1.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="http://labelme.csail.mit.edu/Release3.0/Images/users/dan00pot/duy/cat1.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="http://labelme.csail.mit.edu/Release3.0/Images/users/dan00pot/duy/cat1.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="http://labelme.csail.mit.edu/Release3.0/Images/users/dan00pot/duy/cat1.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+            <div class="card" style="width:350px">
+                <img class="card-img-top" src="http://labelme.csail.mit.edu/Release3.0/Images/users/dan00pot/duy/cat1.jpg" alt="Card image" style="width:100%">
+>>>>>>> a0a1f83cc5efd2e7d765776bcdd20484c81fa82d
+                <div class="card-body">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <a href="#" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+<<<<<<< HEAD
                 <?php }}?>
+=======
+>>>>>>> a0a1f83cc5efd2e7d765776bcdd20484c81fa82d
         </div>
     </div>
 <?include("./template/returnTop.php")?>
@@ -197,7 +328,11 @@ $data = mysqli_fetch_assoc($result0);
 </html>
 <script>
     $(document).ready(function() {
+<<<<<<< HEAD
         $('#mytable').DataTable({ lengthMenu: [100, 200]});
+=======
+        $('#mytable').DataTable();
+>>>>>>> a0a1f83cc5efd2e7d765776bcdd20484c81fa82d
         
     });
 </script>
