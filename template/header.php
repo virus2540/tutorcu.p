@@ -49,6 +49,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">ติดต่อเรา</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./administrator/login.php">Admin</a>
+                    </li>
                     <li class="pt-2 pl-2">
                         <div class="line-it-button" data-lang="th" data-type="friend" data-lineid="@TUTORCUJOB" data-count="true" style="display: none;"></div>
                     </li>

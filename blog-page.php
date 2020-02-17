@@ -95,7 +95,7 @@ $data = mysqli_fetch_assoc($result0);
         $result_h = mysqli_query($conn, $query_h);
         $hdata = mysqli_fetch_assoc($result_h);
         ?>
-        <span class="pr-3"><a href=""><?=$hdata['h_tag']?></a></span>
+        <span class="pr-3"><a href="./view_tag.php?pid=<?=$hdata['id']?>"><?=$hdata['h_tag']?></a></span>
         
     <?php
       }

@@ -63,7 +63,6 @@ $('#myCollapsible').on('hidden.bs.collapse', function () {
         <label for="inputPassword" class="col-md-3 control-label" style="color: green">สถานที่</label>
         <? echo $data[place_tutor];?>
     <br>
-<<<<<<< HEAD
    
     <label for="inputPassword" class="col-md-3 control-label"  style="color: green">Google map</label>
     <?php if($data[google_map] != ""){
@@ -75,8 +74,6 @@ $('#myCollapsible').on('hidden.bs.collapse', function () {
     
     <br> 
 
-=======
->>>>>>> a0a1f83cc5efd2e7d765776bcdd20484c81fa82d
         <label for="inputPassword" class="col-md-3 control-label" style="color: green">วันที่ต้องการเรียน</label>
     <? echo $data[day_tutor];?> 
     <br>
@@ -89,7 +86,6 @@ $('#myCollapsible').on('hidden.bs.collapse', function () {
     <label for="inputPassword" class="col-md-3 control-label"  style="color: green">หมายเหตุ</label>
     <? echo $data[note];?>   
     <br> 
-<<<<<<< HEAD
     <label for="inputPassword" class="col-md-3 control-label"  style="color: green">Tag</label>
     <span class="pl-0 col-12">
     <?php
@@ -99,7 +95,7 @@ $('#myCollapsible').on('hidden.bs.collapse', function () {
         $result_h = mysqli_query($conn, $query_h);
         $hdata = mysqli_fetch_assoc($result_h);
         ?>
-        <span class="pr-3 hash_tag"><a href=""><?=$hdata['h_tag']?></a></span>
+        <span class="pr-3 hash_tag"><a href="view_tag.php?pid=<?=$hdata['id']?>"><?=$hdata['h_tag']?></a></span>
         
     <?php
       }
@@ -108,8 +104,6 @@ $('#myCollapsible').on('hidden.bs.collapse', function () {
     <br> 
     
     
-=======
->>>>>>> a0a1f83cc5efd2e7d765776bcdd20484c81fa82d
 <!--Button-->
     <div class="mt-2">
 <a href="https://line.me/ti/p/%40tutorcujob" class="btn" target="_blank" > <img src="https://www.tutorcu.com/images/New/rtrtrrrrrrrrrrrrrr_04.jpg"></a>

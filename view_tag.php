@@ -2,6 +2,7 @@
 session_start();
 include "./system/config.inc.php";
 include "./system/function.php";
+extract($_GET);
 $strTable = "tb_page";
 $query0 = "SELECT * FROM tb_page WHERE page_id='10'";
 $result0 = mysqli_query($conn, $query0);
@@ -50,6 +51,7 @@ $data = mysqli_fetch_assoc($result0);
 
     <!--Navbar-->
     <? include "template/header.php";?>
+    
     <!--set Content Layout-->
     <div class="container">
         <!--บทความ-->
@@ -75,40 +77,78 @@ $data = mysqli_fetch_assoc($result0);
         <table id="mytable" class="table display tp-3" style="width:100%">
             <thead class="thead-light">
                 <tr>
-                    <th width="80">รหัสงาน</th>
-                    <th>วิชา</th>
-                    <th>สถานที่</th>
-                    <th>สถานะ</th>
-                    <th>จอง</th>
-                    <th width="80">รายละเอียด</th>
+                    <th width="100%">รายวิชา</th>
+                    <!--<th width="100%">รายละเอียด</th>-->
                 </tr>
             </thead>
             <tbody>
             <?php
-                $str="select *from tb_job where status !='no' order by job_id DESC "; 
-                echo '<script>alert('.$str.');</script>';
+                $str="select * from tb_job where status !='no' and hashtag LIKE '%$pid%' order by job_id DESC "; 
+
                 $result=mysqli_query($conn,$str); 
                 while ($sr=mysqli_fetch_array($result)) {
 
             ?>
              <tr>
-                <td class="<?=class_yel($sr[status]);?>"><?=$sr[code_tutor];?></td>
-                <td class="<?=class_yel($sr[status]);?>"><?=$sr[subject_name];?></td>
-                <td class="<?=class_yel($sr[status]);?>"><?=$sr[place_tutor];?></td>
-                <td class="<?=class_yel($sr[status]);?>"><p align="center"><?=class_status1($sr[status]);?></p></td>
-                <td class="<?=class_yel($sr[status]);?>"><?=BookingNum($sr[job_id]);?></td>
-                <td class="<?=class_yel($sr[status]);?>"><a href="work-detail.php?job_id=<?=$sr[job_id];?>" ><img src="./img/file-icon.png" alt="" width="33%"></td>
+                <td >
+                <label for="inputPassword" class="col-md-3 control-label" style="color: green">รหัสงานสอน</label>
+                    <? echo $sr[code_tutor];?>
+                    <br>    
+                    <label for="inputPassword" class="col-md-3 control-label" style="color: green">วิชา</label>
+                        <? echo $sr[subject_name];?>
+                    <br>
+                        <label for="inputPassword" class="col-md-3 control-label" style="color: green">สถานที่</label>
+                        <? echo $sr[place_tutor];?>
+                    <br>
+                
+                    <label for="inputPassword" class="col-md-3 control-label"  style="color: green">Google map</label>
+                    <?php if($sr[google_map] != ""){
+                    echo "<br>";
+                    echo  $sr[google_map];
+                    }
+                    else{echo "<span style='color:red;'>ไม่มี</span>";}
+                    ?>
+                    
+                    <br> 
+
+                        <label for="inputPassword" class="col-md-3 control-label" style="color: green">วันที่ต้องการเรียน</label>
+                    <? echo $sr[day_tutor];?> 
+                    <br>
+                    <label for="inputPassword" class="col-md-3 control-label"  style="color: green">ค่าสอน /ชั่วโมง</label>
+                    <? echo $sr[price];?>  
+                    <br>
+                    <label for="inputPassword" class="col-md-3 control-label"  style="color: green">ค่าประกันงานสอน</label>
+                    <? echo $sr[price_garantee];?>
+                    <br>
+                    <label for="inputPassword" class="col-md-3 control-label"  style="color: green">หมายเหตุ</label>
+                    <? echo $sr[note];?>   
+                    <br> 
+                    <label for="inputPassword" class="col-md-3 control-label"  style="color: green">Tag</label>
+                    <span class="pl-0 col-12">
+                    <?php
+                    $arr_h = explode("," , $sr[hashtag]);
+                    foreach ($arr_h as $key => $tag) {
+                        $query_h = "SELECT * FROM hashtag WHERE id = '".$tag."'";
+                        $result_h = mysqli_query($conn, $query_h);
+                        $hdata = mysqli_fetch_assoc($result_h);
+                        ?>
+                        <span class="pr-3 hash_tag"><a href="view_tag.php?pid=<?=$hdata['id']?>"><?=$hdata['h_tag']?></a></span>
+                        
+                    <?php
+                    }
+                    ?>   
+                    </span>
+                    <br> 
+                </td>
+                
+                <!--<td class="<?=class_yel($sr[status]);?>"><a href="work-detail.php?job_id=<?=$sr[job_id];?>" ><img src="./img/file-icon.png" alt="" width="33%"></td>-->
             </tr> 
             <? }?>
             </tbody>
             <tfoot class="bg-light">
                 <tr>
-                    <th width="80">รหัสงาน</th>
-                    <th>วิชา</th>
-                    <th>สถานที่</th>
-                    <th>สถานะ</th>
-                    <th>จอง</th>
-                    <th width="80">รายละเอียด</th>
+                    <th width="100%" style="text-align:center;">รายวิชา</th>
+                    <!--<th width="100%">รายละเอียด</th>-->
                 </tr>
             </tfoot>
         </table>
