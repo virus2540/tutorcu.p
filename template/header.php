@@ -50,6 +50,9 @@
                         <a class="nav-link" href="#">ติดต่อเรา</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#">สมัครสมาชิก</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="./administrator/login.php">Admin</a>
                     </li>
                     <li class="pt-2 pl-2">
