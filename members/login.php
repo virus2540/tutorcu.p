@@ -33,9 +33,9 @@ include"../system/config.inc.php";
     </div>
 
     <!-- Login Form -->
-    <form action="../../job/members/login_check.php" method="get">
+    <form action="./login_check.php" method="POST">
       <input type="text" id="login" class="fadeIn second" name="username" placeholder="ชื่อเข้าใช้งาน">
-      <input type="text" id="password" class="fadeIn third" name="txtPassword" placeholder="รหัสผ่านเข้าใข้งาน" style="">
+      <input type="text" id="password" class="fadeIn third" name="password" placeholder="รหัสผ่านเข้าใข้งาน" style="">
       <input type="text" name="check0or1" value="1" hidden><br>
       <input type="checkbox" onclick="checkshow()" id="ischeck"><span style="padding-left:10px" >Show Password</span class="ml-3"> <br>
       <input type="submit" class="fadeIn fourth" value="Log In" style="margin: 5px 20px 0px 20px !important;"><br>
